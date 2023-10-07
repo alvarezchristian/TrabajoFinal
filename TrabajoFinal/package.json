@@ -7,16 +7,19 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "jest"
+    "test": "jest",
+    "publish-expo": "expo publish"
   },
   "dependencies": {
     "@babel/preset-env": "^7.22.20",
     "@react-native-picker/picker": "^2.5.1",
     "@testing-library/react-native": "^12.3.0",
+    "eas-cli": "^5.4.0",
     "expo": "~49.0.13",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
-    "react-native": "0.72.5"
+    "react-native": "0.72.5",
+    "expo-updates": "~0.18.16"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
