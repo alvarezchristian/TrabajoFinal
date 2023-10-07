@@ -20,7 +20,7 @@ export default function App() {
       return trabajadorActual.filter((trabajador) => trabajador.id !== id);
     });
   };
-
+ 
 
   return (
     <SafeAreaView style={estilos.contactsContainer}>
