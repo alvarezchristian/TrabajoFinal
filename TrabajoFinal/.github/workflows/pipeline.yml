@@ -1,0 +1,19 @@
+name: Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - calvarez
+      - ccarrasco
+
+jobs:
+  build:
+    - name: Instalar dependencias
+      run: npm install
+
+    - name: Start
+      run: npm run start
+
+    - name: Test
+      run: npm test
