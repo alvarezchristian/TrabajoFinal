@@ -33,12 +33,6 @@ jobs:
           npm install -g yarn
           yarn install
 
-      - name: Build React Native App
-        run: |
-          # Asumiendo que usas Expo, si no, ajusta esto
-          expo build:android
-          expo build:ios
-
       - name: Run Tests
         run: |
          npm test
