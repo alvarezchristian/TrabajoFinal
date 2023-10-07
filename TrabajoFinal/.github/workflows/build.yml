@@ -1,11 +1,19 @@
-name: Build and Deploy React Native
+# This is a basic workflow to help you get started with Actions
 
+name: CI_Renzo
+
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches:
-      - main
-      - ccarrasco
+    branches: [ "main", "ccarrasco" ]
+  pull_request:
+    branches: [ "main", "ccarrasco" ]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,14 +28,20 @@ jobs:
           node-version: 14
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          npm install
+          npm install -g yarn
+          yarn install
 
       - name: Build React Native App
-        run: npx react-native build
+        run: |
+          # Asumiendo que usas Expo, si no, ajusta esto
+          expo build:android
+          expo build:ios
 
       - name: Run Tests
-        run: npx jest
+        run: |
+         npm test
 
       - name: Deploy to Test Environment
-        run: 
-
+        run: |
