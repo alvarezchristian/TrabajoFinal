@@ -3,7 +3,7 @@ import { StyleSheet} from 'react-native';
 export const estilos = StyleSheet.create({
     modalView: {
         margin: 20,
-        backgroundColor: 'white',
+        backgroundColor: '#F2CEA2',
         borderRadius: 20,
         padding: 35,
         alignItems: 'center',
@@ -20,7 +20,7 @@ export const estilos = StyleSheet.create({
         paddingTop: 50,
         paddingLeft: 50,
         flex: 5,
-        backgroundColor: "#e3fae3",
+        backgroundColor: "#F2CEA2",
       },
   });
 
@@ -47,11 +47,12 @@ export const estilos_employee_input = StyleSheet.create({
       },
       button: {
         marginTop: 10,
+        marginRight: 40,
         height: 60,
         alignSelf: "center",
         width: 150,
         borderRadius: 5,
-        backgroundColor: "#54c45e",
+        backgroundColor: "#515932",
         alignItems: "center",
         justifyContent: "center",
       },

@@ -15,10 +15,10 @@ const EmployeeInput = (props) => {
   const [apellido, setApellido] = React.useState("");
   const [dni, setDni] = React.useState("");
   const [modalVisible, setModalVisible] = React.useState(false);
-  const [selectedValue, setSelectedValue] = useState('admin');
+  const [selectedValue, setSelectedValue] = useState('Administrador');
 
   const items = [
-    { label: 'Administrador', value: 'Admin' },
+    { label: 'Administrador', value: 'Administrador' },
     { label: 'Contador', value: 'Contador' },
     { label: 'Almacenero', value: 'Almacenero' },
   ];

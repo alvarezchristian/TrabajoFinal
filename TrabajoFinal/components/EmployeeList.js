@@ -30,7 +30,7 @@ export default EmployeeList;
 const styles = StyleSheet.create({
   contactsContainer: {
     flex: 2,
-    backgroundColor: "#635f57",
+    backgroundColor: "#D9725B",
     borderRadius: 3,
   },
 });
