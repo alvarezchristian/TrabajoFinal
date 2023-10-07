@@ -1,7 +1,9 @@
 class Trabajador {
-    constructor(nombre, rol) {
+    constructor(nombre, rol, apellido_paterno, dni) {
       this.nombre = nombre;
       this.rol = rol;
+      this.dni = dni;
+      this.apellido_paterno = apellido_paterno;
     }
   }
   
