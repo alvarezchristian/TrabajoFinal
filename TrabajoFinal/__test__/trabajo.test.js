@@ -1,4 +1,4 @@
-const { Trabajador, asignarRol, Roles } = require('./trabajo');
+const { Trabajador, asignarRol, Roles } = require('../trabajo');
 
 test('asignar rol admin a juan', () => {
     const juan = new Trabajador('Juan', Roles.EMPLEADO);

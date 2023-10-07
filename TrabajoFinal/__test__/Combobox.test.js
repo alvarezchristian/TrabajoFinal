@@ -1,7 +1,7 @@
 // ComboBox.test.js
 import React from 'react';
 import { render, fireEvent } from "jest";
-import ComboBox from "../ComboBox";
+import ComboBox from "../components/ComboBox";
 
 // Mock de las propiedades necesarias para el ComboBox
 const items = [
