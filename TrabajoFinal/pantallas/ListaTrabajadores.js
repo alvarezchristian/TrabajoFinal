@@ -23,6 +23,10 @@ export default function ListaTrabajadores({ navigation, route }) {
         title="Agregar Trabajador"
         onPress={() => navigation.navigate('AgregarTrabajador')}
       />
+      <Button
+        title="Agregar Rol"
+        onPress={() => navigation.navigate('AgregarRol')}
+      />
       <FlatList
         data={workers}
         keyExtractor={(item, index) => index.toString()}
@@ -33,6 +37,7 @@ export default function ListaTrabajadores({ navigation, route }) {
             <Text style={styles.workerText}>Apellido Paterno: {item.apellidoPaterno}</Text>
             <Text style={styles.workerText}>Apellido Materno: {item.apellidoMaterno}</Text>
             <Text style={styles.workerText}>Edad: {item.edad}</Text>
+            <Text style={styles.workerText}>Rol: {item.rol}</Text>
           </View>
         )}
       />

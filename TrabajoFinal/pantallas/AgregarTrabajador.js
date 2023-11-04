@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 
 export default function AgregarTrabajador({ navigation }) {
   const [nombres, setNombres] = useState('');
@@ -7,6 +8,15 @@ export default function AgregarTrabajador({ navigation }) {
   const [apellidoPaterno, setApellidoPaterno] = useState('');
   const [apellidoMaterno, setApellidoMaterno] = useState('');
   const [edad, setEdad] = useState('');
+  const [rol, setRol] = useState('');
+
+  const roles = [
+    'Gerente',
+    'Supervisor',
+    'Técnico',
+    'Operario',
+    'Otro',
+  ];
 
   const handleAgregar = () => {
     if (nombres && dni && apellidoPaterno && apellidoMaterno && edad) {
@@ -16,8 +26,8 @@ export default function AgregarTrabajador({ navigation }) {
         apellidoPaterno,
         apellidoMaterno,
         edad,
+        rol,
       };
-      // Pasa los datos del nuevo trabajador a la pantalla anterior
       navigation.navigate('ListaTrabajadores', { newWorker: nuevoTrabajador });
     }
   };
@@ -55,6 +65,14 @@ export default function AgregarTrabajador({ navigation }) {
         value={edad}
         onChangeText={(text) => setEdad(text)}
       />
+      <Picker
+        selectedValue={rol}
+        onValueChange={(itemValue, itemIndex) => setRol(itemValue)}
+      >
+        {roles.map((role, index) => (
+          <Picker.Item key={index} label={role} value={role} />
+        ))}
+      </Picker>
       <Button title="Agregar" onPress={handleAgregar} />
     </View>
   );
