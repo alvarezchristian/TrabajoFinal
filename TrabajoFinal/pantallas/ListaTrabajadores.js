@@ -1,50 +1,38 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, FlatList, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
 
-export default function ListaTrabajadores() {
+export default function ListaTrabajadores({ navigation, route }) {
   const [workers, setWorkers] = useState([]);
-  const [newWorker, setNewWorker] = useState('');
+  const { newWorker } = route.params || { newWorker: null };
 
-  const addWorker = () => {
+  const addWorker = (newWorkerData) => {
+    setWorkers([...workers, newWorkerData]);
+  };
+
+  useEffect(() => {
     if (newWorker) {
-      setWorkers([...workers, newWorker]);
-      setNewWorker('');
+      addWorker(newWorker);
+      navigation.setParams({ newWorker: null }); // Restablecer el nuevo trabajador
     }
-  };
-
-  const updateWorker = (index, updatedName) => {
-    const updatedWorkers = [...workers];
-    updatedWorkers[index] = updatedName;
-    setWorkers(updatedWorkers);
-  };
-
-  const deleteWorker = (index) => {
-    const updatedWorkers = [...workers];
-    updatedWorkers.splice(index, 1);
-    setWorkers(updatedWorkers);
-  };
+  }, [newWorker]);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Lista de Trabajadores</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Nuevo Trabajador"
-        value={newWorker}
-        onChangeText={(text) => setNewWorker(text)}
+      <Button
+        title="Agregar Trabajador"
+        onPress={() => navigation.navigate('AgregarTrabajador')}
       />
-      <Button title="Agregar" onPress={addWorker} />
       <FlatList
         data={workers}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item, index }) => (
           <View style={styles.workerItem}>
-            <TextInput
-              style={styles.workerInput}
-              value={item}
-              onChangeText={(text) => updateWorker(index, text)}
-            />
-            <Button title="Eliminar" onPress={() => deleteWorker(index)} />
+            <Text style={styles.workerText}>Nombres: {item.nombres}</Text>
+            <Text style={styles.workerText}>DNI: {item.dni}</Text>
+            <Text style={styles.workerText}>Apellido Paterno: {item.apellidoPaterno}</Text>
+            <Text style={styles.workerText}>Apellido Materno: {item.apellidoMaterno}</Text>
+            <Text style={styles.workerText}>Edad: {item.edad}</Text>
           </View>
         )}
       />
@@ -63,26 +51,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10,
   },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingLeft: 10,
-  },
   workerItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     marginBottom: 10,
-  },
-  workerInput: {
-    flex: 1,
-    height: 40,
-    borderColor: 'gray',
     borderWidth: 1,
+    borderColor: '#ddd',
+    padding: 10,
     borderRadius: 5,
-    paddingLeft: 10,
+  },
+  workerText: {
+    fontSize: 16,
+    marginBottom: 5,
   },
 });
