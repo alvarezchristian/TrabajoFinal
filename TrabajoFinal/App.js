@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -9,24 +10,18 @@ import AgregarRol from './pantallas/AgregarRol';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
-const DrawerNavigator = () =>
+/*const DrawerNavigator = () =>
 {
-  return (<Drawer.Navigator initialRouteName="ListaTrabajadores">
-            <Drawer.Screen name="ListaTrabajadores" component={ListaTrabajadores} />
-            <Drawer.Screen name="Agregar Trabajador" component={AgregarTrabajador} />
-            <Drawer.Screen name="Agregar Rol" component={AgregarRol} />
-          </Drawer.Navigator>)
-}
+  return ()
+}*/
 export default function App() {
   return (
     <NavigationContainer>
-      
-      <Stack.Navigator initialRouteName="ListaTrabajadores">
-        <Stack.Screen name="ListaTrabajadores" component={ListaTrabajadores} options={{ title: 'Lista de Trabajadores' }} />
-        <Stack.Screen name="AgregarTrabajador" component={AgregarTrabajador} options={{ title: 'Agregar Trabajador' }} />
-        <Stack.Screen name="AgregarRol" component={AgregarRol} options={{ title: 'Agregar Rol' }} />
-        <Stack.Screen name="Drawer" component={DrawerNavigator} options={{ headerShown: false, }} />
-      </Stack.Navigator>
+      <Drawer.Navigator initialRouteName="Lista Trabajadores">
+            <Drawer.Screen name="Lista Trabajadores" component={ListaTrabajadores} />
+            <Drawer.Screen name="Agregar Trabajador" component={AgregarTrabajador} />
+            <Drawer.Screen name="Agregar Rol" component={AgregarRol} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }
