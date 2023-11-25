@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, Button, FlatList, StyleSheet } from 'react-native';
 
 export default function ListaTrabajadores({ navigation, route }) {
   const [workers, setWorkers] = useState([]);
@@ -12,12 +12,12 @@ export default function ListaTrabajadores({ navigation, route }) {
   useEffect(() => {
     if (newWorker) {
       addWorker(newWorker);
-      navigation.setParams({ newWorker: null }); // Restablecer el nuevo trabajador
+      navigation.setParams({ newWorker: null });
     }
   }, [newWorker]);
 
   return (
-    <View style={styles.container}>
+    <ImageBackground source={require('../assets/background.png')} style={styles.container}>
       <Text style={styles.title}>Lista de Trabajadores</Text>
       <Button
         title="Agregar Trabajador"
@@ -41,7 +41,7 @@ export default function ListaTrabajadores({ navigation, route }) {
           </View>
         )}
       />
-    </View>
+    </ImageBackground>
   );
 }
 

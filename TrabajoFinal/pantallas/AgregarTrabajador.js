@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
 export default function AgregarTrabajador({ navigation }) {
@@ -33,7 +33,7 @@ export default function AgregarTrabajador({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <ImageBackground source={require('../assets/background.png')} style={styles.container}>
       <Text style={styles.title}>Agregar Trabajador</Text>
       <TextInput
         style={styles.input}
@@ -74,7 +74,7 @@ export default function AgregarTrabajador({ navigation }) {
         ))}
       </Picker>
       <Button title="Agregar" onPress={handleAgregar} />
-    </View>
+    </ImageBackground>
   );
 }
 
